@@ -1,4 +1,6 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -19,6 +21,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+  List<Widget> _pages = [];
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -33,7 +38,43 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(child: Text('Hello World')),
+      body: PageTransitionSwitcher(
+        transitionBuilder: (Widget child, Animation<double> animation,
+            Animation<double> secondaryAnimation) {
+          return FadeThroughTransition(
+            child: child,
+            animation: animation,
+            secondaryAnimation: secondaryAnimation,
+          );
+        },
+        child: _pages.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        elevation: 8.0,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(MdiIcons.newspaperVariantOutline),
+            activeIcon: Icon(MdiIcons.newspaperVariant),
+            title: Text('Headlines'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(MdiIcons.pollBoxOutline),
+            activeIcon: Icon(MdiIcons.pollBox),
+            title: Text('Stats'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(MdiIcons.wrenchOutline),
+            activeIcon: Icon(MdiIcons.wrench),
+            title: Text('Tools'),
+          ),
+        ],
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+      ),
     );
   }
 }
