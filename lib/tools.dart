@@ -4,46 +4,47 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-class Tools extends StatefulWidget{
+class Tools extends StatefulWidget {
   @override
   _ToolsState createState() => _ToolsState();
 }
 
-class _ToolsState extends State<Tools>{
+class _ToolsState extends State<Tools> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    final titles = ['Hand Washing Timer','Corona Near Me'];
+    final titles = ['Hand Washing Timer', 'Corona Near Me'];
     final icons = [Icons.ac_unit, Icons.access_alarm];
     final List<Widget> screens = [WashingHands(), CoronaNearMe()];
     return ListView.builder(
       itemCount: 2,
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         return Card(
-            child: ListTile(
-              leading: Icon(icons[index]),
+          child: ListTile(
+            leading: Icon(icons[index]),
             title: Text(titles[index]),
-              onTap:(){
-                Navigator.push(context, new MaterialPageRoute(
-                builder: (context) => screens.elementAt(index),
-                ));
-              },
-            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                    builder: (context) => screens.elementAt(index),
+                  ));
+            },
+          ),
         );
       },
     );
   }
 }
 
-
-class CoronaNearMe extends StatefulWidget{
+class CoronaNearMe extends StatefulWidget {
   @override
   _CoronaNearMeState createState() => _CoronaNearMeState();
 }
 
-class _CoronaNearMeState extends State<CoronaNearMe>{
+class _CoronaNearMeState extends State<CoronaNearMe> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -52,37 +53,34 @@ class _CoronaNearMeState extends State<CoronaNearMe>{
       ),
     );
   }
-  }
-
-
-
-
-class WashingHands extends StatefulWidget{
-  @override
-  WashingHandsState createState() => WashingHandsState();
 }
 
-class WashingHandsState extends State<WashingHands>{
+class WashingHands extends StatefulWidget {
   @override
+  _WashingHandsState createState() => _WashingHandsState();
+}
+
+class _WashingHandsState extends State<WashingHands> {
   int _counter = 20;
-Timer _timer;
-void _startTimer(){
-_counter = 20;
-if(_timer!=null){
-  _timer.cancel();
-}
-_timer = Timer.periodic(Duration(seconds: 1), (timer) {
-  setState(() {
-    if(_counter>0) {
-      _counter--;
-    }
-    else{
+  Timer _timer;
+
+  void _startTimer() {
+    _counter = 20;
+    if (_timer != null) {
       _timer.cancel();
     }
-  });
-});
-}
-  Widget build(BuildContext context){
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_counter > 0) {
+          _counter--;
+        } else {
+          _timer.cancel();
+        }
+      });
+    });
+  }
+
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -94,23 +92,30 @@ _timer = Timer.periodic(Duration(seconds: 1), (timer) {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            (_counter > 0)? Text("") : Text("Finished!", style: TextStyle(color:Colors.green,
-            fontWeight: FontWeight.bold,
-            fontSize: 70,),),
+            (_counter > 0)
+                ? Text("")
+                : Text(
+                    "Finished!",
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 70,
+                    ),
+                  ),
             Text(
-            '$_counter',
+              '$_counter',
+              style: GoogleFonts.lato(
+                fontWeight: FontWeight.normal,
+                fontSize: 40,
+              ),
+            ),
+            RaisedButton(
+              onPressed: () => _startTimer(),
+              child: Text(
+                'Start',
                 style: GoogleFonts.lato(
                   fontWeight: FontWeight.normal,
                   fontSize: 40,
-                ),
-            ),
-            RaisedButton(
-              onPressed: ()=>_startTimer(),
-              child: Text(
-                  'Start',
-                style: GoogleFonts.lato(
-                fontWeight: FontWeight.normal,
-                fontSize: 40,
                 ),
               ),
             ),
@@ -120,8 +125,3 @@ _timer = Timer.periodic(Duration(seconds: 1), (timer) {
     );
   }
 }
-
-
-
-
-
