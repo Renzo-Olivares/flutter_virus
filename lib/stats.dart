@@ -19,22 +19,37 @@ class _StatsState extends State<Stats> {
       chartTitle: 'Coronavirus Cases by Country',
     ),
     StatsPage(
-      chart: CoronavirusTimeSeriesChart.withSampleData(),
+      chart: CoronavirusTimeSeriesChart.withSampleDataUs(),
       chartTitle: 'US Coronavirus Cases',
+    ),
+    StatsPage(
+      chart: CoronavirusTimeSeriesChart.withSampleDataPeru(),
+      chartTitle: 'Peru Coronavirus Cases',
+    ),
+    StatsPage(
+      chart: CoronavirusTimeSeriesChart.withSampleDataItaly(),
+      chartTitle: 'Germany Coronavirus Cases',
+    ),
+    StatsPage(
+      chart: CoronavirusTimeSeriesChart.withSampleDataUk(),
+      chartTitle: 'UK Coronavirus Cases',
     )
   ];
 
   List<Widget> _cardPreviews = [
     CoronavirusBarLabelChart.preview(),
     CoronavirusPieChart.preview(),
-    CoronavirusTimeSeriesChart.preview(),
+    CoronavirusTimeSeriesChart.previewUs(),
+    CoronavirusTimeSeriesChart.previewPeru(),
+    CoronavirusTimeSeriesChart.previewItaly(),
+    CoronavirusTimeSeriesChart.previewUk(),
   ];
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return GridView.builder(
-        itemCount: 3,
+        itemCount: 6,
         gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
