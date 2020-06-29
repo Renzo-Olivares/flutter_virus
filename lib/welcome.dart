@@ -17,13 +17,13 @@ class Welcome extends StatelessWidget {
             SizedBox(height: 30.0),
             Center(
                 child: Text(
-              'Welcome to Flutter Virus',
+              'Welcome to Flutter Safety',
               style: Theme.of(context).textTheme.headline5,
             )),
             SizedBox(height: 3.0),
             Center(
               child: Text(
-                'Keep up to date with everything corona',
+                'Keep up to date with everything Coronavirus',
                 style: Theme.of(context).textTheme.caption,
               ),
             ),
@@ -38,14 +38,6 @@ class Welcome extends StatelessWidget {
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
-                RaisedButton(
-                  child: Text("CREATE"),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6.0)),
-                ),
-                SizedBox(
-                  width: 0.0,
-                ),
                 RaisedButton(
                   child: Text('SIGN IN'),
                   color: Theme.of(context).accentColor,

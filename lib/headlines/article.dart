@@ -13,7 +13,8 @@ class _ArticlesState extends State<Articles> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Virus'),
+        title: Text('Flutter Safety'),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: Website(url: widget.name),

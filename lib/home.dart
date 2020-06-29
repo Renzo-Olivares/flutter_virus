@@ -48,13 +48,13 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(_tabNames.elementAt(_selectedIndex)),
         centerTitle: true,
       ),
       body: PageTransitionSwitcher(
+        duration: Duration(milliseconds: 400),
         transitionBuilder: (Widget child, Animation<double> animation,
             Animation<double> secondaryAnimation) {
           return FadeThroughTransition(

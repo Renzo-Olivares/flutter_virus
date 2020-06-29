@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'article.dart';
+import 'headlines/article.dart';
 import 'package:animations/animations.dart';
 
 class Headlines extends StatefulWidget {
@@ -12,7 +12,7 @@ class Headlines extends StatefulWidget {
 class _HeadlinesState extends State<Headlines> {
   @override
   Widget build(BuildContext context) {
-    final Source = [
+    final source = [
       "Washington Post",
       "CDC",
       "CNN",
@@ -21,7 +21,7 @@ class _HeadlinesState extends State<Headlines> {
       "The Seattle Times",
       "Forbes"
     ];
-    final Subtitle = [
+    final subtitle = [
       "Corona Virus Live Updates",
       "Health Updates",
       "Corona Virus Around the World Live Updates",
@@ -30,7 +30,7 @@ class _HeadlinesState extends State<Headlines> {
       "Seattle Updates",
       "News Updates"
     ];
-    final List<Widget> Websites = [
+    final List<Widget> websites = [
       Articles(
           name:
               "https://www.washingtonpost.com/nation/2020/06/28/coronavirus-live-updates-us/"),
@@ -63,13 +63,14 @@ class _HeadlinesState extends State<Headlines> {
       Image.asset('assets/images/Forbes-logo.png'),
     ];
     return ListView.builder(
-        itemCount: Websites.length,
+        itemCount: websites.length,
         itemBuilder: (context, index) {
           return Card(
               child: OpenContainer(
             transitionType: ContainerTransitionType.fadeThrough,
-            openBuilder: (BuildContext context, VoidCallBack_) {
-              return Websites[index];
+            transitionDuration: Duration(milliseconds: 400),
+            openBuilder: (BuildContext context, VoidCallback _) {
+              return websites[index];
             },
             closedElevation: 8.0,
             closedShape: RoundedRectangleBorder(
@@ -81,11 +82,12 @@ class _HeadlinesState extends State<Headlines> {
                 child: ListTile(
                   leading:
                       Container(height: 200, width: 50, child: images[index]),
-                  title: Text((Source[index]),
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic)),
-                  subtitle: Text(Subtitle[index]),
+                  title: Text((source[index]),
+                      style: Theme.of(context).textTheme.headline6),
+                  subtitle: Text(
+                    subtitle[index],
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
                 ),
               );
             },
