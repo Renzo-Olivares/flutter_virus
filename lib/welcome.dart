@@ -39,7 +39,7 @@ class Welcome extends StatelessWidget {
               alignment: MainAxisAlignment.center,
               children: [
                 RaisedButton(
-                  child: Text('SIGN IN'),
+                  child: Text('CONTINUE'),
                   color: Theme.of(context).accentColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6.0),

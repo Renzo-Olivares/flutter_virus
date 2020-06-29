@@ -10,29 +10,38 @@ class Stats extends StatefulWidget {
 }
 
 class _StatsState extends State<Stats> {
+  static final List<String> _titles = [
+    'Covid Cases by Region',
+    'Covid Cases by Country',
+    'US Coronavirus Cases',
+    'Peru Coronavirus Cases',
+    'Italy Coronavirus Cases',
+    'UK Coronavirus Cases',
+  ];
+
   List<Widget> _statsPages = [
     StatsPage(
         chart: CoronavirusBarLabelChart.withSampleData(),
-        chartTitle: 'Coronavirus Cases by Region'),
+        chartTitle: _titles[0]),
     StatsPage(
       chart: CoronavirusPieChart.withSampleData(),
-      chartTitle: 'Coronavirus Cases by Country',
+      chartTitle: _titles[1],
     ),
     StatsPage(
       chart: CoronavirusTimeSeriesChart.withSampleDataUs(),
-      chartTitle: 'US Coronavirus Cases',
+      chartTitle: _titles[2],
     ),
     StatsPage(
       chart: CoronavirusTimeSeriesChart.withSampleDataPeru(),
-      chartTitle: 'Peru Coronavirus Cases',
+      chartTitle: _titles[3],
     ),
     StatsPage(
       chart: CoronavirusTimeSeriesChart.withSampleDataItaly(),
-      chartTitle: 'Germany Coronavirus Cases',
+      chartTitle: _titles[4],
     ),
     StatsPage(
       chart: CoronavirusTimeSeriesChart.withSampleDataUk(),
-      chartTitle: 'UK Coronavirus Cases',
+      chartTitle: _titles[5],
     )
   ];
 
@@ -71,7 +80,16 @@ class _StatsState extends State<Stats> {
                 return Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(4.0))),
-                  child: IgnorePointer(child: _cardPreviews.elementAt(index)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 6.0),
+                      Text(_titles.elementAt(index)),
+                      Expanded(
+                          child: IgnorePointer(
+                              child: _cardPreviews.elementAt(index))),
+                    ],
+                  ),
                 );
               },
             ),
@@ -95,6 +113,7 @@ class _StatsPageState extends State<StatsPage> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(widget.chartTitle),
       ),
       body: widget.chart,
