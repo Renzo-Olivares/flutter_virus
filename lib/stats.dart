@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
-import 'package:fluttervirus/charts/barlabelchart.dart';
-import 'package:fluttervirus/charts/piechart.dart';
-import 'package:fluttervirus/charts/timeserieschart.dart';
+import 'package:fluttersafety/charts/barlabelchart.dart';
+import 'package:fluttersafety/charts/piechart.dart';
+import 'package:fluttersafety/charts/timeserieschart.dart';
 
 class Stats extends StatefulWidget {
   @override

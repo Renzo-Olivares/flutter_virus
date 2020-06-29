@@ -1,5 +1,5 @@
-name: fluttervirus
-description: A tool to track coronavirus updated in your state and globally
+name: fluttersafety
+description: A tool to keep yourself updated about coronavirus globally
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
