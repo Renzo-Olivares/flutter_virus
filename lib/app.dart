@@ -8,10 +8,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Virus',
+      title: 'Flutter Safety',
       theme: _lightCyber,
       darkTheme: _darkCyber,
-      home: MyHomePage(title: 'Flutter Virus'),
+      home: MyHomePage(title: 'Flutter Safety'),
       initialRoute: '/welcome',
       onGenerateRoute: _getRoute,
     );

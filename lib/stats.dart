@@ -56,6 +56,7 @@ class _StatsState extends State<Stats> {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: OpenContainer(
+              transitionDuration: Duration(milliseconds: 400),
               transitionType: ContainerTransitionType.fadeThrough,
               openBuilder: (BuildContext context, VoidCallback _) {
                 return _statsPages.elementAt(index);
