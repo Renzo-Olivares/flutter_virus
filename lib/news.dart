@@ -55,11 +55,11 @@ class _HeadlinesState extends State<Headlines> {
     ];
     final images = [
       Image.asset('assets/images/washington_post.jpg'),
-      Image.asset('assets/images/download.png'),
+      Image.asset('assets/images/cdc.png'),
       Image.asset('assets/images/cnn.png'),
-      Image.asset('assets/images/1200x1200_t.png'),
-      Image.asset('assets/images/WOWT_6_logo.png'),
-      Image.asset('assets/images/hZR3qQB7_400x400.jpg'),
+      Image.asset('assets/images/nyt.png'),
+      Image.asset('assets/images/WOWT_6.png'),
+      Image.asset('assets/images/seattletimes.jpg'),
       Image.asset('assets/images/Forbes-logo.png'),
     ];
     return ListView.builder(
