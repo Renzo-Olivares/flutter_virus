@@ -49,20 +49,21 @@ class _MasksGuide extends State<MasksGuide> {
         gridDelegate:
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
-          return Padding(
+          return Container(
             padding: const EdgeInsets.all(4.0),
             child: FlipCard(
               direction: FlipDirection.HORIZONTAL,
-              front: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 5,
-                    color: Theme.of(context).accentColor,
+              front: Material(
+                elevation: 8.0,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 5,
+                      color: Theme.of(context).accentColor,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(4.0)),
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                ),
-                child: Card(
-                  borderOnForeground: true,
+                  height: 200,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
@@ -76,14 +77,16 @@ class _MasksGuide extends State<MasksGuide> {
                   ),
                 ),
               ),
-              back: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 5,
-                      color: Theme.of(context).accentColor,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(4.0))),
-                child: Card(
+              back: Material(
+                elevation: 8.0,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                      border: Border.all(
+                        width: 5,
+                        color: Theme.of(context).accentColor,
+                      )),
+                  height: 200.0,
                   child: Column(
                     children: <Widget>[
                       ListTile(

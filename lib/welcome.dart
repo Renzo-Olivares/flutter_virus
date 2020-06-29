@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Welcome extends StatelessWidget {
   @override
@@ -12,6 +13,9 @@ class Welcome extends StatelessWidget {
             SizedBox(height: 150.0),
             CircleAvatar(
               backgroundColor: Theme.of(context).primaryColor,
+              child: FlutterLogo(
+                size: 80.0,
+              ),
               radius: 56.0,
             ),
             SizedBox(height: 30.0),
