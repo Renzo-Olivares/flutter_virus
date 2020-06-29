@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttervirus/login.dart';
 
 class Welcome extends StatelessWidget {
   @override
@@ -54,8 +53,7 @@ class Welcome extends StatelessWidget {
                     borderRadius: BorderRadius.circular(6.0),
                   ),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginFlow()));
+                    Navigator.pop(context);
                   },
                 ),
               ],
