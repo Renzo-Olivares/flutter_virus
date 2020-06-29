@@ -1,16 +1,20 @@
-# fluttervirus
+# fluttersafety
 
-A tool to track coronavirus updated in your state and globally
+A tool to keep yourself updated about coronavirus globally
 
-## Getting Started
+Dependenices:
+    Flutter Animations Package: https://pub.dev/packages/animations
+    Flutter Webview Package: https://pub.dev/packages/webview_flutter
+    Flutter Charts Package: https://pub.dev/packages/charts_flutter
+    Google Fonts Package: https://pub.dev/packages/google_fonts
+    FlipCard Package: https://pub.dev/packages/flip_card
+    Material Design Icons Package
 
-This project is a starting point for a Flutter application.
+Data:
+    World Health Organization : https://covid19.who.int/
+    Worldometers : https://www.worldometers.info/coronavirus/worldwide-graphs/
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Authors:
+    Renzo Olivares (Renzo-Olivares)
+    Bryan Olivares (Bryanoli)
+    Dylan Olivares (DylanO9)
