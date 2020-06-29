@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'Countdown.dart';
+import 'countdown.dart';
 
 class Tools extends StatefulWidget {
   @override
@@ -11,11 +12,11 @@ class _ToolsState extends State<Tools> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    final titles = ['Hand Washing Timer', 'Corona Near Me', 'Mask Guide'];
-    final icons = [Icons.ac_unit, Icons.access_alarm, Icons.airline_seat_flat];
-    final List<Widget> screens = [WashingHands(), CoronaNearMe(), MasksGuide()];
+    final titles = ['Hand Washing Timer', 'Mask Guidelines'];
+    final icons = [MdiIcons.timerOutline, MdiIcons.guyFawkesMask];
+    final List<Widget> screens = [WashingHands(), MasksGuide()];
     return ListView.builder(
-      itemCount: 3,
+      itemCount: 2,
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
@@ -31,24 +32,6 @@ class _ToolsState extends State<Tools> {
           ),
         );
       },
-    );
-  }
-}
-
-class CoronaNearMe extends StatefulWidget {
-  @override
-  _CoronaNearMeState createState() => _CoronaNearMeState();
-}
-
-class _CoronaNearMeState extends State<CoronaNearMe> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text('Corona Near Me'),
-      ),
     );
   }
 }
