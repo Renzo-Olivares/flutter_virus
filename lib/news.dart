@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Articles.dart';
+import 'article.dart';
+import 'package:animations/animations.dart';
 
 class Headlines extends StatefulWidget {
   Headlines({Key key}) : super(key: key);
@@ -65,21 +66,30 @@ class _HeadlinesState extends State<Headlines> {
         itemCount: Websites.length,
         itemBuilder: (context, index) {
           return Card(
-            child: ListTile(
-                leading:
-                    Container(height: 200, width: 50, child: images[index]),
-                title: Text((Source[index]),
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic)),
-                subtitle: Text(Subtitle[index]),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Websites[index]),
-                  );
-                }),
-          );
+              child: OpenContainer(
+            transitionType: ContainerTransitionType.fadeThrough,
+            openBuilder: (BuildContext context, VoidCallBack_) {
+              return Websites[index];
+            },
+            closedElevation: 8.0,
+            closedShape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            ),
+            closedColor: Theme.of(context).accentColor,
+            closedBuilder: (BuildContext context, VoidCallback openContainer) {
+              return Card(
+                child: ListTile(
+                  leading:
+                      Container(height: 200, width: 50, child: images[index]),
+                  title: Text((Source[index]),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic)),
+                  subtitle: Text(Subtitle[index]),
+                ),
+              );
+            },
+          ));
         });
   }
 }

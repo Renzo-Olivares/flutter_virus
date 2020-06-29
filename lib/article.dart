@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Webpract.dart';
+import 'articlewebview.dart';
 
 class Articles extends StatefulWidget {
   Articles({Key key, this.name}) : super(key: key);
